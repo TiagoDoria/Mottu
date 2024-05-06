@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GRvvSqBe+zOa5LzB9BIKKnyKMDHwpBn798LLcWwJmYxNqN3IeQSnb5Sq9Bk/d1bl1TdP/K4koljJR3aDxAg3IQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tiago\\Videos\\Mottu\\Mottu\\MottuWeb\\MottuWeb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tiago\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
