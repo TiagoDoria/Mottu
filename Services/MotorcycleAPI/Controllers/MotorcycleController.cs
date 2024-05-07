@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MotorcycleAPI.Data.DTOs;
-using MotorcycleAPI.Models;
 using MotorcycleAPI.Services.interfaces;
 
 namespace MotorcycleAPI.Controllers

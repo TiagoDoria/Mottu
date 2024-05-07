@@ -112,3 +112,4 @@ C:\Users\tiago\Videos\Mottu\Mottu\Services\MotorcycleAPI\bin\Debug\net8.0\ru\Mic
 C:\Users\tiago\Videos\Mottu\Mottu\Services\MotorcycleAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\tiago\Videos\Mottu\Mottu\Services\MotorcycleAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\tiago\Videos\Mottu\Mottu\Services\MotorcycleAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tiago\Videos\Mottu\Mottu\Services\MotorcycleAPI\obj\Debug\net8.0\MotorcycleAPI.sourcelink.json

@@ -7,6 +7,7 @@ using MotorcycleAPI.Services.interfaces;
 using MotorcycleAPI.Services;
 using AutoMapper;
 using MotorcycleAPI.Config;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,7 @@ builder.Services.AddScoped<IMotorcycleService, MotorcycleService>();
 
 builder.Services.AddDbContext<MotorcycleContext>(option =>
 {
-option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 var app = builder.Build();
@@ -39,7 +40,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
