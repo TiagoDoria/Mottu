@@ -9,5 +9,6 @@
         public string DriversLicenseNumber { get; set; }
         public Guid LicenseTypeId { get; set; }
         public string Password { get; set; }
+        public string? Role { get; set; } = "Deliveryman";
     }
 }

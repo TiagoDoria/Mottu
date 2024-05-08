@@ -4,7 +4,8 @@ namespace AuthAPI.Service.Interface
 {
     public interface IAuthService
     {
-        Task<DeliverymanDTO> Register(RegistrationRequestDTO registrationRequestDTO);
+        Task<string> Register(RegistrationRequestDTO registrationRequestDTO);
         Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO);
+        Task<bool> AssignRole(string email, string roleName);
     }
 }
