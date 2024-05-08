@@ -9,11 +9,11 @@ namespace AuthAPI.Service
     public class AuthService : IAuthService
     {
         private readonly AuthContext _db;
-        private readonly UserManager<Deliveryman> _userManager;
+        private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
-        public AuthService(AuthContext db, UserManager<Deliveryman> userManager, RoleManager<IdentityRole> roleManager, IJwtTokenGenerator jwtTokenGenerator)
+        public AuthService(AuthContext db, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IJwtTokenGenerator jwtTokenGenerator)
         {
             _db = db;
             _userManager = userManager;
@@ -47,7 +47,7 @@ namespace AuthAPI.Service
 
             var token = _jwtTokenGenerator.GenerateToken(user);
 
-            DeliverymanDTO deliverymanDTO = new()
+            UserDTO deliverymanDTO = new()
             {
                 Id = user.Id,
                 Cnpj = user.Cnpj,
@@ -70,22 +70,22 @@ namespace AuthAPI.Service
         public async Task<string> Register(RegistrationRequestDTO registrationRequestDTO)
         {
             bool status = true;
-            Deliveryman user = new()
+            User user = new()
             {
                 UserName = registrationRequestDTO.Email,
                 Email = registrationRequestDTO.Email,
                 NormalizedEmail = registrationRequestDTO.Email.ToUpper(),
                 Name = registrationRequestDTO.Name,
                 Cnpj = registrationRequestDTO.Cnpj,
-                BirthDate = DateTime.Parse(registrationRequestDTO.BirthDate.ToString()).ToUniversalTime(),
+                BirthDate = registrationRequestDTO.BirthDate != null ? DateTime.Parse(registrationRequestDTO.BirthDate.ToString()).ToUniversalTime() : null,
                 DriversLicenseNumber = registrationRequestDTO.DriversLicenseNumber,
                 LicenseTypeId = registrationRequestDTO.LicenseTypeId
             };
 
             try
             {
-                var checkCnpj = _db.Deliverymans.First(u => u.Cnpj == registrationRequestDTO.Cnpj);
-                var checkCnh = _db.Deliverymans.First(u => u.DriversLicenseNumber == registrationRequestDTO.DriversLicenseNumber);
+                var checkCnpj = _db.Deliverymans.FirstOrDefault(u => u.Cnpj == registrationRequestDTO.Cnpj);
+                var checkCnh = _db.Deliverymans.FirstOrDefault(u => u.DriversLicenseNumber == registrationRequestDTO.DriversLicenseNumber);
                 if (checkCnpj != null || checkCnh != null)
                 {
                     status = false;
@@ -95,7 +95,7 @@ namespace AuthAPI.Service
                 if (status && result.Succeeded)
                 {
                     var userToReturn = _db.Deliverymans.First(u => u.UserName == registrationRequestDTO.Email);
-                    DeliverymanDTO deliverymanDTO = new()
+                    UserDTO deliverymanDTO = new()
                     {
                         Id = userToReturn.Id,
                         Cnpj = userToReturn.Cnpj,

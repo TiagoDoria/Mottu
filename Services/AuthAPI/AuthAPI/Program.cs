@@ -24,7 +24,7 @@ builder.Services.AddDbContext<AuthContext>(option =>
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSettings:JwtOptions"));
 
-builder.Services.AddIdentity<Deliveryman, IdentityRole>().AddEntityFrameworkStores<AuthContext>()
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AuthContext>()
     .AddDefaultTokenProviders();
 
 

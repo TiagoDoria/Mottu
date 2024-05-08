@@ -22,7 +22,39 @@ namespace AuthAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("AuthAPI.Models.Deliveryman", b =>
+            modelBuilder.Entity("AuthAPI.Models.LicenseType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LicenseType");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d5fbdff7-ee3c-40f5-b570-5df560c51d1e"),
+                            Description = "A"
+                        },
+                        new
+                        {
+                            Id = new Guid("38be1774-957b-4538-bd7c-f9b48ac3a412"),
+                            Description = "B"
+                        },
+                        new
+                        {
+                            Id = new Guid("4417317b-88f3-4e67-a990-6b175905bbd3"),
+                            Description = "A+B"
+                        });
+                });
+
+            modelBuilder.Entity("AuthAPI.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -30,11 +62,10 @@ namespace AuthAPI.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime?>("BirthDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Cnpj")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -42,7 +73,6 @@ namespace AuthAPI.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("DriversLicenseNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
@@ -52,7 +82,7 @@ namespace AuthAPI.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("LicenseTypeId")
+                    b.Property<Guid?>("LicenseTypeId")
                         .HasColumnType("uuid");
 
                     b.Property<bool>("LockoutEnabled")
@@ -94,12 +124,6 @@ namespace AuthAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Cnpj")
-                        .IsUnique();
-
-                    b.HasIndex("DriversLicenseNumber")
-                        .IsUnique();
-
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -108,38 +132,6 @@ namespace AuthAPI.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("AuthAPI.Models.LicenseType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LicenseType");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("df6ab005-9379-49a5-a1a7-a6ac134cb8a2"),
-                            Description = "A"
-                        },
-                        new
-                        {
-                            Id = new Guid("d09130c3-b9f3-45a5-85bb-b06d576491b5"),
-                            Description = "B"
-                        },
-                        new
-                        {
-                            Id = new Guid("5747295a-936e-480c-9bf1-22bbc865cc70"),
-                            Description = "A+B"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -285,7 +277,7 @@ namespace AuthAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("AuthAPI.Models.Deliveryman", null)
+                    b.HasOne("AuthAPI.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -294,7 +286,7 @@ namespace AuthAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("AuthAPI.Models.Deliveryman", null)
+                    b.HasOne("AuthAPI.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -309,7 +301,7 @@ namespace AuthAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AuthAPI.Models.Deliveryman", null)
+                    b.HasOne("AuthAPI.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -318,7 +310,7 @@ namespace AuthAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("AuthAPI.Models.Deliveryman", null)
+                    b.HasOne("AuthAPI.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

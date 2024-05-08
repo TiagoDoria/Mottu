@@ -47,7 +47,7 @@ namespace AuthAPI.Controllers
         }
 
         [HttpPost("AssignRole")]
-        public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDTO model)
+        public async Task<IActionResult> AssignRole([FromBody] RegistrationRoleRequestDTO model)
         {
             var assignRoleSuccessful= await _authService.AssignRole(model.Email, model.Role.ToUpper());
             if (!assignRoleSuccessful)

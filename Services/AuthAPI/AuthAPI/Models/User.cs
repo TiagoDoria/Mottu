@@ -1,14 +1,17 @@
-﻿namespace AuthAPI.Data.DTOs
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Schema;
+
+namespace AuthAPI.Models
 {
-    public class RegistrationRequestDTO
+    public class User : IdentityUser
     {
-        public string Email { get; set; }
+        [Required]
         public string Name { get; set; }
         public string? Cnpj { get; set; }
         public DateTime? BirthDate { get; set; }
         public string? DriversLicenseNumber { get; set; }
         public Guid? LicenseTypeId { get; set; }
-        public string Password { get; set; }
-        public string? Role { get; set; }
     }
 }

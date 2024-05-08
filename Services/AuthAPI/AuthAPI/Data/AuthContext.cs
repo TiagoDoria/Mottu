@@ -5,19 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuthAPI.Data
 {
-    public class AuthContext : IdentityDbContext<Deliveryman>
+    public class AuthContext : IdentityDbContext<User>
     {
       
         public AuthContext(DbContextOptions<AuthContext> options) : base(options) { }
 
-        public DbSet<Deliveryman> Deliverymans { get; set; }
+        public DbSet<User> Deliverymans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Deliveryman>(entity => {
-                entity.HasIndex(e => e.Cnpj).IsUnique();
-                entity.HasIndex(e => e.DriversLicenseNumber).IsUnique();
-            });
 
             modelBuilder.Entity<LicenseType>().HasData(new LicenseType
             {
