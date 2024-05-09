@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("MottuWeb")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("MotorcycleAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d341dd5180948d9162d885445036997c43ee329a")]
-[assembly: System.Reflection.AssemblyProductAttribute("MottuWeb")]
-[assembly: System.Reflection.AssemblyTitleAttribute("MottuWeb")]
+[assembly: System.Reflection.AssemblyProductAttribute("MotorcycleAPI")]
+[assembly: System.Reflection.AssemblyTitleAttribute("MotorcycleAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
