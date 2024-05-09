@@ -8,6 +8,8 @@ using MottuWeb.Service.IService;
 using MottuWeb.Utils;
 using Newtonsoft.Json;
 using System.Security.Claims;
+using System.Net.Http;
+using System.Text;
 
 namespace MottuWeb.Controllers
 {
@@ -15,11 +17,17 @@ namespace MottuWeb.Controllers
     {
         private readonly IServiceAuth _serviceAuth;
         private readonly ITokenProvider _tokenProvider;
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _imagePath = Path.Combine("c:", "files");
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthController(IServiceAuth serviceAuth, ITokenProvider tokenProvider)
+
+        public AuthController(IServiceAuth serviceAuth, ITokenProvider tokenProvider, IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor)
         {
             _serviceAuth = serviceAuth;
             _tokenProvider = tokenProvider;
+            _httpClientFactory = httpClientFactory;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
@@ -136,6 +144,43 @@ namespace MottuWeb.Controllers
 
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal); 
+        }
+
+        public async Task<IActionResult> UploadDriversLicenseImage()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> UploadDriversLicenseImagePost(IFormFile image)
+        {
+            if (image == null || image.Length == 0)
+            {
+                ModelState.AddModelError("image", "Por favor, selecione um arquivo.");
+                return View();
+            }
+
+            var allowedExtensions = new[] { ".png", ".bmp" };
+            var extension = Path.GetExtension(image.FileName).ToLower();
+
+            if (!allowedExtensions.Contains(extension))
+            {
+                return BadRequest("Apenas imagens nos formatos PNG e BMP são permitidas.");
+            }
+
+            var FileId = Guid.NewGuid();
+            string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            string fileName = $"{FileId}{extension}";
+
+            string filePath = Path.Combine(_imagePath, userId, fileName);
+
+            // Salve a imagem no disco
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+
+            return Ok($"Imagem salva com sucesso. Caminho: {filePath}");
         }
     }
 }
