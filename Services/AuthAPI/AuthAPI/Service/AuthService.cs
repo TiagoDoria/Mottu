@@ -42,12 +42,13 @@ namespace AuthAPI.Service
             bool isValid = await _userManager.CheckPasswordAsync(user, loginRequestDTO.Password);
             if (user == null || !isValid)
             {
-                return new LoginResponseDTO() { Deliveryman = null, Token= "" };
+                return new LoginResponseDTO() { User = null, Token= "" };
             }
 
-            var token = _jwtTokenGenerator.GenerateToken(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtTokenGenerator.GenerateToken(user, roles);
 
-            UserDTO deliverymanDTO = new()
+            UserDTO userDTO = new()
             {
                 Id = user.Id,
                 Cnpj = user.Cnpj,
@@ -60,7 +61,7 @@ namespace AuthAPI.Service
 
             LoginResponseDTO responseDTO = new LoginResponseDTO()
             {
-                Deliveryman = deliverymanDTO,
+                User = userDTO,
                 Token = token
             };
 
@@ -95,7 +96,7 @@ namespace AuthAPI.Service
                 if (status && result.Succeeded)
                 {
                     var userToReturn = _db.Deliverymans.First(u => u.UserName == registrationRequestDTO.Email);
-                    UserDTO deliverymanDTO = new()
+                    UserDTO userDTO = new()
                     {
                         Id = userToReturn.Id,
                         Cnpj = userToReturn.Cnpj,

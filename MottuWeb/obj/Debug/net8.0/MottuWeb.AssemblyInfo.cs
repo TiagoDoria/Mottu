@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MottuWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c19260c2a39b1fd1dbca9b6e1dbe82b02604d5b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a96d9457854410c1636a4b52aff6773f20afc22f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MottuWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MottuWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

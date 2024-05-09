@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model RegistrationRequestDTO
+@{
+}
+<form method="post">
+    <div class="container border p-4">
+        <div class="row text-center">
+            <h1>Registrar</h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">Nome</label>
+                <input class="form-control" asp-for="Name" placeholder="Nome">
+                <span asp-asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">E-mail</label>
+                <input class="form-control" asp-for="Email" placeholder="E-mail">
+                <span asp-asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">Senha</label>
+                <input class="form-control" asp-for="Password" placeholder="Senha">
+                <span asp-asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">Perfil</label>
+                <select required id="roleSelect" asp-for="Role" class="form-control" asp-items="@ViewBag.RoleList">
+                    <option disabled selected>---Selecione---</option>
+                </select>
+            </div>
+            
+            <div id="cnpjField" class="col-md-6 offset-3 pb-2" style="display: none;">
+                <label class="form-label">CNPJ</label>
+                <input  class="form-control" asp-for="Cnpj" placeholder="CNPJ">
+                <span asp-asp-validation-for="Cnpj" class="text-danger" />
+            </div>
+            <div id="birthdateField" class="col-md-6 offset-3 pb-2" style="display: none;">
+                <label class="form-label">Data de Nascimento</label>
+                <input class="form-control" asp-for="BirthDate" placeholder="Data de Nascimento">
+                <span asp-asp-validation-for="BirthDate" class="text-danger" />
+            </div>
+            <div id="driversLicenseNumberField" class="col-md-6 offset-3 pb-2" style="display: none;">
+                <label class="form-label">Número da CNH</label>
+                <input class="form-control" asp-for="DriversLicenseNumber" placeholder="Número da CNH">
+                <span asp-asp-validation-for="DriversLicenseNumber" class="text-danger" />
+            </div>
+            <div class="col-md-6 offset-3 pb-2">
+                <button type="submit" class="form-control btn btn-success" value="Submit">Registrar</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    document.getElementById('roleSelect').addEventListener('change', function() {
+        var role = this.value;
+        var cnpjField = document.getElementById('cnpjField');
+        var birthdateField = document.getElementById('birthdateField');
+        var driversLicenseNumberField = document.getElementById('driversLicenseNumberField');
+
+        if (role === 'DELIVERYMAN') {
+            cnpjField.style.display = 'block';
+            birthdateField.style.display = 'block';
+            driversLicenseNumberField.style.display = 'block';
+        } else {
+            cnpjField.style.display = 'none';
+            birthdateField.style.display = 'none';
+            driversLicenseNumberField.style.display = 'none';
+        }
+    });
+</script>

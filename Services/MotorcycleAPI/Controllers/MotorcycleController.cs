@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MotorcycleAPI.Data.DTOs;
 using MotorcycleAPI.Services.interfaces;
 
@@ -6,6 +7,7 @@ namespace MotorcycleAPI.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [Authorize]
     public class MotorcycleController : ControllerBase
     {
         private IMotorcycleService _service;

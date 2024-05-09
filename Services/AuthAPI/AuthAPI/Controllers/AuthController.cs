@@ -36,7 +36,7 @@ namespace AuthAPI.Controllers
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO model)
         {
             var loginResponse = await _authService.Login(model);
-            if (loginResponse.Deliveryman == null)
+            if (loginResponse.User == null)
             {
                 _response.IsSuccess = false;
                 _response.Message = "Username or password is incorrect";

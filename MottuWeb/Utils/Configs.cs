@@ -3,6 +3,10 @@
     public class Configs
     {
         public static string MotorcycleAPIBase {  get; set; }
+        public static string AuthAPIBase { get; set; }
+        public const string RoleAdmin = "ADMIN";
+        public const string RoleDeliveryman = "DELIVERYMAN";
+        public const string TokenCookie = "JWTToken";
         public enum ApiType
         {
             GET,
