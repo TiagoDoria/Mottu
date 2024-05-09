@@ -58,5 +58,21 @@ namespace AuthAPI.Controllers
             }
             return Ok(_response);
         }
+
+        [HttpGet("LicenseTypes")]
+        public async Task<ActionResult<IEnumerable<ResponseDTO>>> GetLicenseTypes()
+        {          
+            try
+            {
+                var licenses = await _authService.FindAllLicenseTypesAsync();
+                _response.Result = licenses;
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+            return Ok(_response);
+        }
     }
 }

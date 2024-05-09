@@ -54,8 +54,15 @@ namespace MottuWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
+            List<LicenseTypeDTO> list = new();
+            ResponseDTO responseDTO = await _serviceAuth.GetAllLicenseTypes();
+            if (responseDTO != null && responseDTO.IsSuccess)
+            {
+                list = JsonConvert.DeserializeObject<List<LicenseTypeDTO>>(Convert.ToString(responseDTO.Result));
+            }
+
             var roleList = new List<SelectListItem>()
             {
                 new SelectListItem{ Text = Configs.RoleAdmin, Value =  Configs.RoleAdmin },
@@ -64,6 +71,7 @@ namespace MottuWeb.Controllers
             };  
 
             ViewBag.RoleList = roleList;
+            ViewData["LicenseTypes"] = list;
             return View();
         }
 

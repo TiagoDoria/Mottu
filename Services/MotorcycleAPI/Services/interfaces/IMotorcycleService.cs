@@ -1,5 +1,4 @@
 ﻿using MotorcycleAPI.Data.DTOs;
-using MotorcycleAPI.Models;
 
 namespace MotorcycleAPI.Services.interfaces
 {

@@ -3,6 +3,8 @@ using AuthAPI.Data.DTOs;
 using AuthAPI.Models;
 using AuthAPI.Service.Interface;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 namespace AuthAPI.Service
 {
@@ -122,6 +124,23 @@ namespace AuthAPI.Service
             if (!status) return "Cnpj field or driver's license number cannot be repeated";
 
             return "Error Encountered.";
+        }
+
+        public async Task<IEnumerable<LicenseTypeDTO>> FindAllLicenseTypesAsync()
+        {
+            var licenseTypes = await _db.LicenseTypes.ToListAsync();
+            List<LicenseTypeDTO> licenseDTOs = new List<LicenseTypeDTO>();
+
+            foreach (var license in licenseTypes)
+            {
+                licenseDTOs.Add(new LicenseTypeDTO
+                {
+                    Id = license.Id,
+                    Description = license.Description
+                });
+            }
+
+            return licenseDTOs;
         }
     }
 }

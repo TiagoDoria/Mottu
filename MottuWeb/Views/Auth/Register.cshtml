@@ -1,6 +1,8 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using MottuWeb.Models
+
 @model RegistrationRequestDTO
 @{
 }
@@ -48,6 +50,16 @@
                 <input class="form-control" asp-for="DriversLicenseNumber" placeholder="Número da CNH">
                 <span asp-asp-validation-for="DriversLicenseNumber" class="text-danger" />
             </div>
+            <div id="licenseField" class="col-md-6 offset-3 pb-2" style="display: none;">
+                <label class="form-label">Tipo de CNH</label>
+                <select id="licenseSelect" asp-for="LicenseTypeId" class="form-control">
+                    <option disabled selected>---Selecione---</option>
+                    @foreach (var license in ViewData["LicenseTypes"] as List<LicenseTypeDTO>)
+                    {
+                        <option value="@license.Id">@license.Description</option>
+                    }
+                </select>
+            </div>
             <div class="col-md-6 offset-3 pb-2">
                 <button type="submit" class="form-control btn btn-success" value="Submit">Registrar</button>
             </div>
@@ -58,6 +70,7 @@
     document.getElementById('roleSelect').addEventListener('change', function() {
         var role = this.value;
         var cnpjField = document.getElementById('cnpjField');
+        var licenseField = document.getElementById('licenseField');
         var birthdateField = document.getElementById('birthdateField');
         var driversLicenseNumberField = document.getElementById('driversLicenseNumberField');
 
@@ -65,6 +78,7 @@
             cnpjField.style.display = 'block';
             birthdateField.style.display = 'block';
             driversLicenseNumberField.style.display = 'block';
+            licenseField.style.display = 'block';
         } else {
             cnpjField.style.display = 'none';
             birthdateField.style.display = 'none';

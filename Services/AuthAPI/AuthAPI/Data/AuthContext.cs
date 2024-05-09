@@ -11,6 +11,7 @@ namespace AuthAPI.Data
         public AuthContext(DbContextOptions<AuthContext> options) : base(options) { }
 
         public DbSet<User> Deliverymans { get; set; }
+        public DbSet<LicenseType> LicenseTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
