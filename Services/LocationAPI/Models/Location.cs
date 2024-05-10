@@ -7,12 +7,9 @@ namespace LocationAPI.Models
     {
         public Guid Id { get; set; }
         [Required]
-        [Column(TypeName = "datetime")]
         public DateTime StartDate { get; set; } = DateTime.Now.AddDays(1);
-        [Column(TypeName = "datetime")]
         public DateTime? EndDate { get; set; }
         [Required]
-        [Column(TypeName = "datetime")]
         public DateTime ExpectedEndDate { get; set; }
         [Required]
         public int PlanDays { get; set; }

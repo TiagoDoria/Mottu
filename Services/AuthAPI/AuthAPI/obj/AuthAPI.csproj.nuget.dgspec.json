@@ -1,33 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj": {}
+    "C:\\Users\\tiago\\Videos\\Mottu\\Mottu\\Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj": {
+    "C:\\Users\\tiago\\Videos\\Mottu\\Mottu\\Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj",
+        "projectUniqueName": "C:\\Users\\tiago\\Videos\\Mottu\\Mottu\\Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj",
         "projectName": "AuthAPI",
-        "projectPath": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj",
-        "packagesPath": "C:\\Users\\tiago.conceicao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\obj\\",
+        "projectPath": "C:\\Users\\tiago\\Videos\\Mottu\\Mottu\\Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj",
+        "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tiago\\Videos\\Mottu\\Mottu\\Services\\AuthAPI\\AuthAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tiago.conceicao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
