@@ -43,7 +43,7 @@ namespace MotorcycleAPI.Repository
 
         public async Task<IEnumerable<Motorcycle>> FindAllAsync()
         {
-            List<Motorcycle> motorcycles = await _context.Motorcycles.ToListAsync();
+            var motorcycles = await _context.Motorcycles.ToListAsync();
             return motorcycles;
         }
 

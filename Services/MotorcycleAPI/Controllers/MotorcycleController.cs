@@ -5,7 +5,7 @@ using MotorcycleAPI.Services.interfaces;
 
 namespace MotorcycleAPI.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class MotorcycleController : ControllerBase
