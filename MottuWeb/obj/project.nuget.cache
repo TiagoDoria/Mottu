@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "kH/WQb1JJMOxdxUG/vABlEg4c5XNs7sD8cUo9dgH3EwceH4kiq+Se1366Z4PaFMIKpk2fElARTHZq/DJj61Lhw==",
+  "dgSpecHash": "cgcHimOKolXFflf8Mc5WNB+ypccE93JeDrjieQp4lTxYkZQJN+gXtlnNW3jNMwZ9w33PISfXl2vomSTLeYUy1A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tiago\\Videos\\Mottu\\Mottu\\MottuWeb\\MottuWeb.csproj",
+  "projectFilePath": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\MottuWeb.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\tiago\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.5.1\\microsoft.identitymodel.abstractions.7.5.1.nupkg.sha512",
-    "C:\\Users\\tiago\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.5.1\\microsoft.identitymodel.jsonwebtokens.7.5.1.nupkg.sha512",
-    "C:\\Users\\tiago\\.nuget\\packages\\microsoft.identitymodel.logging\\7.5.1\\microsoft.identitymodel.logging.7.5.1.nupkg.sha512",
-    "C:\\Users\\tiago\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.5.1\\microsoft.identitymodel.tokens.7.5.1.nupkg.sha512",
-    "C:\\Users\\tiago\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\tiago\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.5.1\\system.identitymodel.tokens.jwt.7.5.1.nupkg.sha512"
+    "C:\\Users\\tiago.conceicao\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.5.1\\microsoft.identitymodel.abstractions.7.5.1.nupkg.sha512",
+    "C:\\Users\\tiago.conceicao\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.5.1\\microsoft.identitymodel.jsonwebtokens.7.5.1.nupkg.sha512",
+    "C:\\Users\\tiago.conceicao\\.nuget\\packages\\microsoft.identitymodel.logging\\7.5.1\\microsoft.identitymodel.logging.7.5.1.nupkg.sha512",
+    "C:\\Users\\tiago.conceicao\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.5.1\\microsoft.identitymodel.tokens.7.5.1.nupkg.sha512",
+    "C:\\Users\\tiago.conceicao\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\tiago.conceicao\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.5.1\\system.identitymodel.tokens.jwt.7.5.1.nupkg.sha512"
   ],
   "logs": []
 }

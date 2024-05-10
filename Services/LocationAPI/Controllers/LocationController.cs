@@ -101,5 +101,22 @@ namespace LocationAPI.Controllers
             if (!status) return BadRequest();
             return Ok(status);
         }
+
+        [HttpPost("calculate")]
+        [Authorize(Roles = "ADMIN")]
+        public async Task<ActionResult> CalculatePrice([FromBody] LocationDTO entity)
+        {
+            try
+            {
+                var location = await _service.CalculatePrice(entity);
+                _response.Result = location;
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+            return Ok(_response);
+        }
     }
 }

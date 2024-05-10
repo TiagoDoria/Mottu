@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MotorcycleAPI.Config;
@@ -78,10 +79,13 @@ builder.Services.AddSingleton(mapper);
 builder.Services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
 builder.Services.AddScoped<IMotorcycleService, MotorcycleService>();
 
-builder.Services.AddDbContext<MotorcycleContext>(option =>
-{
-    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+//builder.Services.AddDbContext<MotorcycleContext>(option =>
+//{
+//    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+//});
+
+builder.Services.AddDbContext<MotorcycleContext>(options =>
+                            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

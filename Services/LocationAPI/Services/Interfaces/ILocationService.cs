@@ -9,6 +9,6 @@ namespace LocationAPI.Services.Interfaces
         Task<IEnumerable<LocationDTO>> FindAllAsync();
         Task<LocationDTO> FindByIdAsync(Guid id);
         Task<bool> DeleteAsync(Guid id);
-        Task CalculatePrice(LocationDTO entity);
+        Task<LocationDTO> CalculatePrice(LocationDTO entity);
     }
 }

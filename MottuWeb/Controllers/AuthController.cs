@@ -173,7 +173,7 @@ namespace MottuWeb.Controllers
 
             string fileName = $"{FileId}{extension}";
 
-            string filePath = Path.Combine(_imagePath);
+            string filePath = Path.Combine(_imagePath, fileName);
 
             if (!Directory.Exists(filePath))
             {

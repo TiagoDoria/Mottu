@@ -44,22 +44,24 @@ namespace LocationAPI.Services
             await _locationRepository.UpdateAsync(_mapper.Map<Location>(entity));
         }
 
-        public async Task CalculatePrice(LocationDTO entity)
+        public async Task<LocationDTO> CalculatePrice(LocationDTO entity)
         {
             switch (entity.PlanDays)
             {
                 case 7:
                     var sevenDaysPlan = new LeasingCalculator(new SevenDaysLeasingPlan());
-                    entity.TotalPrice = sevenDaysPlan.CalculateLeasingValue(entity.StartDate, entity.EndDate); break;
+                    entity.TotalPrice = sevenDaysPlan.CalculateLeasingValue(entity.StartDate, (DateTime)entity.EndDate); break;
                 case 15:
                     var fifteenDaysPlan = new LeasingCalculator(new FifteenDaysLeasingPlan());
-                    entity.TotalPrice = fifteenDaysPlan.CalculateLeasingValue(entity.StartDate, entity.EndDate); break;
+                    entity.TotalPrice = fifteenDaysPlan.CalculateLeasingValue(entity.StartDate, (DateTime)entity.EndDate); break;
                 case 30:
                     var thirtyDaysPlan = new LeasingCalculator(new ThirtyDaysLeasingPlan());
-                    entity.TotalPrice = thirtyDaysPlan.CalculateLeasingValue(entity.StartDate, entity.EndDate); break;
+                    entity.TotalPrice = thirtyDaysPlan.CalculateLeasingValue(entity.StartDate, (DateTime)entity.EndDate); break;
             }
                 
             await _locationRepository.UpdateAsync(_mapper.Map<Location>(entity));
+
+            return entity;
         }
     }
 }

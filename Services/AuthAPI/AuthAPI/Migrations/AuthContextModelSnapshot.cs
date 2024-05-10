@@ -39,17 +39,17 @@ namespace AuthAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1dfc4d3f-da0b-45bc-a645-cc3b18fa8766"),
+                            Id = new Guid("637e2872-d8f8-48a0-a8da-28c8ccb349b8"),
                             Description = "A"
                         },
                         new
                         {
-                            Id = new Guid("56ffb088-a560-46da-99f6-7716d1bfde7d"),
+                            Id = new Guid("dce9be07-a418-4354-9312-d7164677a93d"),
                             Description = "B"
                         },
                         new
                         {
-                            Id = new Guid("a10ebf74-3159-4e8f-a26c-729a89e8b25c"),
+                            Id = new Guid("5541b243-df27-4889-b4fe-74386645b4cb"),
                             Description = "A+B"
                         });
                 });
