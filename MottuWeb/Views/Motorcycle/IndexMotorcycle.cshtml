@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<MotorcycleDTO>
+@{
+    int count = 1; 
+}
+
+<h2 class="text-center">Motos cadastradas</h2>
+<a class="text-center" asp-controller="Motorcycle" asp-action="CreateMotorcycle" type="button" class="btn btn-link">Cadastrar Moto</a>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Placa</th>
+            <th scope="col">Disponível</th>
+            <th scope="col">Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Year</td>
+                <td>@item.Model</td>
+                <td>@item.Plate</td>             
+                @if (@item.Available == true)
+                {
+                    <td>Disponível</td>
+                }
+                else
+                {
+                    <td>Alugada</td>
+                }    
+                <td>
+                    <a asp-controller="Motorcycle" asp-action="DeleteMotorcycle" asp-route-filmeId="@item.Id"><i style="color: red" class="bi bi-trash-fill"></i></a>
+                    <a asp-controller="Motorcycle" asp-action="EditMotorcycle" asp-route-filmeId="@item.Id"><i style="color: blue" class="bi bi-pencil-fill"></i></a>
+
+                </td>
+            </tr>
+            count++;
+        }
+    </tbody>
+</table>

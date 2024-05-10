@@ -1,0 +1,241 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5335378B-1C77-4E35-90D9-EA1E11B894A5}|Services\\MotorcycleAPI\\MotorcycleAPI.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\services\\motorcycleapi\\controllers\\motorcyclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5335378B-1C77-4E35-90D9-EA1E11B894A5}|Services\\MotorcycleAPI\\MotorcycleAPI.csproj|solutionrelative:services\\motorcycleapi\\controllers\\motorcyclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\mottuweb\\views\\motorcycle\\indexmotorcycle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|solutionrelative:mottuweb\\views\\motorcycle\\indexmotorcycle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\mottuweb\\views\\motorcycle\\createmotorcycle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|solutionrelative:mottuweb\\views\\motorcycle\\createmotorcycle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61C33472-D7A6-4703-BBE4-9E9330614C2C}|Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\services\\authapi\\authapi\\data\\authcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61C33472-D7A6-4703-BBE4-9E9330614C2C}|Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj|solutionrelative:services\\authapi\\authapi\\data\\authcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61C33472-D7A6-4703-BBE4-9E9330614C2C}|Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\services\\authapi\\authapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61C33472-D7A6-4703-BBE4-9E9330614C2C}|Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj|solutionrelative:services\\authapi\\authapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\mottuweb\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|solutionrelative:mottuweb\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\mottuweb\\controllers\\motorcyclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|solutionrelative:mottuweb\\controllers\\motorcyclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\mottuweb\\service\\iservice\\iservicemotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|solutionrelative:mottuweb\\service\\iservice\\iservicemotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\mottuweb\\service\\serviceauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|solutionrelative:mottuweb\\service\\serviceauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\mottuweb\\service\\servicemotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4272AB57-FE1A-4DE9-8A52-E27D17AAAFAA}|MottuWeb\\MottuWeb.csproj|solutionrelative:mottuweb\\service\\servicemotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5335378B-1C77-4E35-90D9-EA1E11B894A5}|Services\\MotorcycleAPI\\MotorcycleAPI.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\services\\motorcycleapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5335378B-1C77-4E35-90D9-EA1E11B894A5}|Services\\MotorcycleAPI\\MotorcycleAPI.csproj|solutionrelative:services\\motorcycleapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE10EE18-AAF8-4A95-A109-FC30B6BB2F1F}|Services\\LocationAPI\\LocationAPI.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\services\\locationapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DE10EE18-AAF8-4A95-A109-FC30B6BB2F1F}|Services\\LocationAPI\\LocationAPI.csproj|solutionrelative:services\\locationapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61C33472-D7A6-4703-BBE4-9E9330614C2C}|Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj|c:\\users\\tiago.conceicao\\pictures\\mottu\\services\\authapi\\authapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{61C33472-D7A6-4703-BBE4-9E9330614C2C}|Services\\AuthAPI\\AuthAPI\\AuthAPI.csproj|solutionrelative:services\\authapi\\authapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthAPI\\AuthAPI\\Service\\AuthService.cs",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\Service\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthAPI\\AuthAPI\\Service\\AuthService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:42:04.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthContext.cs",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\Data\\AuthContext.cs",
+              "RelativeDocumentMoniker": "Services\\AuthAPI\\AuthAPI\\Data\\AuthContext.cs",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\Data\\AuthContext.cs",
+              "RelativeToolTip": "Services\\AuthAPI\\AuthAPI\\Data\\AuthContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:41:44.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MotorcycleController.cs",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\MotorcycleAPI\\Controllers\\MotorcycleController.cs",
+              "RelativeDocumentMoniker": "Services\\MotorcycleAPI\\Controllers\\MotorcycleController.cs",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\MotorcycleAPI\\Controllers\\MotorcycleController.cs",
+              "RelativeToolTip": "Services\\MotorcycleAPI\\Controllers\\MotorcycleController.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwDkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:37:16.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateMotorcycle.cshtml",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Views\\Motorcycle\\CreateMotorcycle.cshtml",
+              "RelativeDocumentMoniker": "MottuWeb\\Views\\Motorcycle\\CreateMotorcycle.cshtml",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Views\\Motorcycle\\CreateMotorcycle.cshtml",
+              "RelativeToolTip": "MottuWeb\\Views\\Motorcycle\\CreateMotorcycle.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-10T17:24:23.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IndexMotorcycle.cshtml",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Views\\Motorcycle\\IndexMotorcycle.cshtml",
+              "RelativeDocumentMoniker": "MottuWeb\\Views\\Motorcycle\\IndexMotorcycle.cshtml",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Views\\Motorcycle\\IndexMotorcycle.cshtml",
+              "RelativeToolTip": "MottuWeb\\Views\\Motorcycle\\IndexMotorcycle.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-10T17:24:04.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IServiceMotorcycle.cs",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Service\\IService\\IServiceMotorcycle.cs",
+              "RelativeDocumentMoniker": "MottuWeb\\Service\\IService\\IServiceMotorcycle.cs",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Service\\IService\\IServiceMotorcycle.cs",
+              "RelativeToolTip": "MottuWeb\\Service\\IService\\IServiceMotorcycle.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:18:35.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ServiceMotorcycle.cs",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Service\\ServiceMotorcycle.cs",
+              "RelativeDocumentMoniker": "MottuWeb\\Service\\ServiceMotorcycle.cs",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Service\\ServiceMotorcycle.cs",
+              "RelativeToolTip": "MottuWeb\\Service\\ServiceMotorcycle.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAcwD4AAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:17:57.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ServiceAuth.cs",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Service\\ServiceAuth.cs",
+              "RelativeDocumentMoniker": "MottuWeb\\Service\\ServiceAuth.cs",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Service\\ServiceAuth.cs",
+              "RelativeToolTip": "MottuWeb\\Service\\ServiceAuth.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:17:46.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "MottuWeb\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "MottuWeb\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAcwFIAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:14:01.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MotorcycleController.cs",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Controllers\\MotorcycleController.cs",
+              "RelativeDocumentMoniker": "MottuWeb\\Controllers\\MotorcycleController.cs",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\MottuWeb\\Controllers\\MotorcycleController.cs",
+              "RelativeToolTip": "MottuWeb\\Controllers\\MotorcycleController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:13:45.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\MotorcycleAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "Services\\MotorcycleAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\MotorcycleAPI\\appsettings.json",
+              "RelativeToolTip": "Services\\MotorcycleAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-10T17:11:37.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\LocationAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "Services\\LocationAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\LocationAPI\\appsettings.json",
+              "RelativeToolTip": "Services\\LocationAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-10T17:11:26.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "Services\\AuthAPI\\AuthAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\tiago.conceicao\\Pictures\\Mottu\\Services\\AuthAPI\\AuthAPI\\appsettings.json",
+              "RelativeToolTip": "Services\\AuthAPI\\AuthAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-10T17:11:03.987Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

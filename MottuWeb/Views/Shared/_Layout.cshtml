@@ -38,9 +38,20 @@
                         }
                         else
                         {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Auth" asp-action="UploadDriversLicenseImage">Upload CNH</a>
-                            </li>
+                            @if (User.IsInRole("ADMIN"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Motorcycle" asp-action="IndexMotorcycle">Motos</a>
+                                </li>
+                            }
+
+                            @if (User.IsInRole("DELIVERYMAN"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Auth" asp-action="UploadDriversLicenseImage">Upload CNH</a>
+                                </li>
+                            }
+                            
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Auth" asp-action="Logout">Logout</a>
                             </li>

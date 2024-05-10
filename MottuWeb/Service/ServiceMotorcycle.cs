@@ -59,5 +59,14 @@ namespace MottuWeb.Service
                 Url = Configs.MotorcycleAPIBase + "/api/motorcycle/"
             });
         }
+
+        public async Task<ResponseDTO?> GetAllLicenseTypes()
+        {
+            return await _serviceBase.SendAsync(new RequestDTO()
+            {
+                ApiType = Configs.ApiType.GET,
+                Url = Configs.MotorcycleAPIBase + "/api/motorcycle/LicenseTypes"
+            }, withBearer: false);
+        }
     }
 }

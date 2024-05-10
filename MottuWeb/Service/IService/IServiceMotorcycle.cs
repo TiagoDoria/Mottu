@@ -9,5 +9,6 @@ namespace MottuWeb.Service.IService
         Task<ResponseDTO?> AddMotorcycleAsync(MotorcycleDTO motorcycleDTO);
         Task<ResponseDTO?> UpdateMotorcycleAsync(MotorcycleDTO motorcycleDTO);
         Task<ResponseDTO?> DeleteMotorcycleById(Guid id);
+        Task<ResponseDTO?> GetAllLicenseTypes();
     }
 }

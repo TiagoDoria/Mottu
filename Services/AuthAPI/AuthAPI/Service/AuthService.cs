@@ -4,7 +4,6 @@ using AuthAPI.Models;
 using AuthAPI.Service.Interface;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
 
 namespace AuthAPI.Service
 {

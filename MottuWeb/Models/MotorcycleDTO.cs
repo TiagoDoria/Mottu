@@ -6,5 +6,6 @@
         public int Year { get; set; }
         public string Model { get; set; }
         public string Plate { get; set; }
+        public bool Available { get; set; } = true;
     }
 }
