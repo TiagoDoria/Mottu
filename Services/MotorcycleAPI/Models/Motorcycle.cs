@@ -11,5 +11,6 @@ namespace MotorcycleAPI.Models
         public string Model {  get; set; }
         [Required]
         public string Plate { get; set; }
+        public bool Available { get; set; } = true;
     }
 }

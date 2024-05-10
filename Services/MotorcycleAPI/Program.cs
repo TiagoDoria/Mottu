@@ -1,17 +1,15 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using MotorcycleAPI.Data;
-using MotorcycleAPI.Repository.interfaces;
-using MotorcycleAPI.Repository;
-using MotorcycleAPI.Services.interfaces;
-using MotorcycleAPI.Services;
 using AutoMapper;
-using MotorcycleAPI.Config;
-using Microsoft.AspNetCore.Identity;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MotorcycleAPI.Config;
+using MotorcycleAPI.Data;
+using MotorcycleAPI.Repository;
+using MotorcycleAPI.Repository.interfaces;
+using MotorcycleAPI.Services;
+using MotorcycleAPI.Services.interfaces;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,14 +78,10 @@ builder.Services.AddSingleton(mapper);
 builder.Services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
 builder.Services.AddScoped<IMotorcycleService, MotorcycleService>();
 
-//builder.Services.AddDbContext<MotorcycleContext>(option =>
-//{
-//    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-//});
-
-
-builder.Services.AddDbContext<MotorcycleContext>(options =>
-                            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<MotorcycleContext>(option =>
+{
+    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 var app = builder.Build();
 

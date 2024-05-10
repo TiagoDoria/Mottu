@@ -10,12 +10,14 @@ namespace MottuWeb.Service
     public class ServiceBase : IServiceBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        public ServiceBase(IHttpClientFactory httpClientFactory)
+        private ITokenProvider _tokenProvider;
+        public ServiceBase(IHttpClientFactory httpClientFactory, ITokenProvider tokenProvider)
         {
             _httpClientFactory = httpClientFactory;
+            _tokenProvider = tokenProvider;
         }
 
-        public async Task<ResponseDTO?> SendAsync(RequestDTO requestDTO)
+        public async Task<ResponseDTO?> SendAsync(RequestDTO requestDTO, bool withBearer = true)
         {
             try
             {
@@ -23,6 +25,12 @@ namespace MottuWeb.Service
                 HttpRequestMessage message = new();
                 message.Headers.Add("Accept", "application/json");
                 //token
+                if (withBearer)
+                {
+                    var token = _tokenProvider.GetToken();
+                    message.Headers.Add("Authorization", $"Bearer {token}");
+                }
+
                 message.RequestUri = new Uri(requestDTO.Url);
                 if (requestDTO.Data != null)
                 {

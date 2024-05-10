@@ -11,6 +11,7 @@ namespace MotorcycleAPI.Config
             var mappingConfig = new MapperConfiguration(config =>
             {
                 config.CreateMap<MotorcycleDTO, Motorcycle>().ReverseMap();
+                config.CreateMap<MotorcycleUpdateDTO, Motorcycle>().ReverseMap();
             });
             return mappingConfig;
         }

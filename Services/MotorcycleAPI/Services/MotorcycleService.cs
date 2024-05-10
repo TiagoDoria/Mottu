@@ -37,7 +37,12 @@ namespace MotorcycleAPI.Services
             return _mapper.Map<MotorcycleDTO>(await _motorcycleRepository.FindByIdAsync(id));
         }
 
-        public async Task UpdateAsync(MotorcycleDTO entity)
+        public async Task<MotorcycleDTO> FindByPlateAsync(string plate)
+        {
+            return _mapper.Map<MotorcycleDTO>(await _motorcycleRepository.FindByPlateAsync(plate));
+        }
+
+        public async Task UpdateAsync(MotorcycleUpdateDTO entity)
         {
             await _motorcycleRepository.UpdateAsync(_mapper.Map<Motorcycle>(entity));
         }

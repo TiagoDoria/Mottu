@@ -4,6 +4,6 @@ namespace MottuWeb.Service.IService
 {
     public interface IServiceBase
     {
-        Task<ResponseDTO?> SendAsync(RequestDTO requestDTO);
+        Task<ResponseDTO?> SendAsync(RequestDTO requestDTO, bool withBearer = true);
     }
 }

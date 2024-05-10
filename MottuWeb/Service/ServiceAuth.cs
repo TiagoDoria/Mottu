@@ -20,7 +20,7 @@ namespace MottuWeb.Service
                 ApiType = Configs.ApiType.POST,
                 Data = registrationRequestDTO,
                 Url = Configs.AuthAPIBase + "/api/auth/AssignRole"
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDTO?> GetAllLicenseTypes()
@@ -29,7 +29,7 @@ namespace MottuWeb.Service
             {
                 ApiType = Configs.ApiType.GET,
                 Url = Configs.AuthAPIBase + "/api/auth/LicenseTypes"
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDTO?> LoginAsync(LoginRequestDTO loginRequestDTO)
@@ -39,7 +39,7 @@ namespace MottuWeb.Service
                 ApiType = Configs.ApiType.POST,
                 Data = loginRequestDTO,
                 Url = Configs.AuthAPIBase + "/api/auth/login"
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDTO?> RegisterAsync(RegistrationRequestDTO registrationRequestDTO)
@@ -49,7 +49,7 @@ namespace MottuWeb.Service
                 ApiType = Configs.ApiType.POST,
                 Data = registrationRequestDTO,
                 Url = Configs.AuthAPIBase + "/api/auth/register"
-            });
+            }, withBearer: false);
         }
     }
 }

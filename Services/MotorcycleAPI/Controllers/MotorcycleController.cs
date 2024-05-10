@@ -36,7 +36,26 @@ namespace MotorcycleAPI.Controllers
             return Ok(_response);
         }
 
+        [HttpGet("plate/{plate}")]
+        public async Task<ActionResult<ResponseDTO>> FindByPlateAsync(string plate)
+        {
+            try
+            {
+                var motorcycle = await _service.FindByPlateAsync(plate);
+                if (motorcycle.Id == Guid.Empty) return NotFound();
+                _response.Result = motorcycle;
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+
+            return Ok(_response);
+        }
+
         [HttpGet]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<IEnumerable<ResponseDTO>>> FindAllAsync()
         {
             try
@@ -53,6 +72,7 @@ namespace MotorcycleAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<ResponseDTO>> AddAsync([FromBody] MotorcycleDTO dto)
         {
             try
@@ -71,7 +91,8 @@ namespace MotorcycleAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<ResponseDTO>> Update([FromBody] MotorcycleDTO dto)
+        [Authorize(Roles = "ADMIN")]
+        public async Task<ActionResult<ResponseDTO>> Update([FromBody] MotorcycleUpdateDTO dto)
         {
             try
             {
@@ -89,6 +110,7 @@ namespace MotorcycleAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult> Delete(Guid id)
         {
             var status = await _service.DeleteAsync(id);

@@ -61,5 +61,13 @@ namespace MotorcycleAPI.Repository
             await _context.SaveChangesAsync();
             return entity;
         }
+
+        public async Task<Motorcycle> FindByPlateAsync(string plate)
+        {
+            Motorcycle motorcycle =
+                await _context.Motorcycles.Where(x => x.Plate == plate)
+                .FirstOrDefaultAsync() ?? new Motorcycle();
+            return motorcycle;
+        }
     }
 }

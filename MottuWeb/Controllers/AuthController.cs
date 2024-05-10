@@ -2,14 +2,12 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.IdentityModel.Tokens.Jwt;
 using MottuWeb.Models;
 using MottuWeb.Service.IService;
 using MottuWeb.Utils;
 using Newtonsoft.Json;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Net.Http;
-using System.Text;
 
 namespace MottuWeb.Controllers
 {
@@ -18,16 +16,19 @@ namespace MottuWeb.Controllers
         private readonly IServiceAuth _serviceAuth;
         private readonly ITokenProvider _tokenProvider;
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly string _imagePath = Path.Combine("c:", "files");
+        private readonly string _imagePath = Path.Combine("c:", "cnh");
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
 
-        public AuthController(IServiceAuth serviceAuth, ITokenProvider tokenProvider, IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor)
+
+        public AuthController(IServiceAuth serviceAuth, ITokenProvider tokenProvider, IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment hostingEnvironment)
         {
             _serviceAuth = serviceAuth;
             _tokenProvider = tokenProvider;
             _httpClientFactory = httpClientFactory;
             _httpContextAccessor = httpContextAccessor;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         [HttpGet]
@@ -168,11 +169,16 @@ namespace MottuWeb.Controllers
             }
 
             var FileId = Guid.NewGuid();
-            string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value;
 
             string fileName = $"{FileId}{extension}";
 
-            string filePath = Path.Combine(_imagePath, userId, fileName);
+            string filePath = Path.Combine(_imagePath);
+
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
 
             // Salve a imagem no disco
             using (var stream = new FileStream(filePath, FileMode.Create))
