@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<LocationDTO>
+@{
+    int count = 1;
+}
+
+<h2 class="text-center">Todas as locações</h2>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Data Início</th>
+            <th scope="col">Data Fim</th>
+            <th scope="col">Data Prevista</th>
+            <th scope="col">Status</th>
+            <th scope="col">Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
+                <td>@item.EndDate?.ToString("dd/MM/yyyy")</td>
+                <td>@item.ExpectedEndDate.ToString("dd/MM/yyyy")</td>
+                @if (@item.EndDate == null)
+                {
+                    <td>Ativa</td>
+                }
+                else
+                {
+                    <td>Finalizada</td>
+                }
+                <td>
+                    <a asp-controller="Location" asp-action="DeleteLocation" asp-route-filmeId="@item.Id"><i style="color: red" class="bi bi-trash-fill"></i></a>
+                    <a asp-controller="Location" asp-action="EditLocation" asp-route-filmeId="@item.Id"><i style="color: blue" class="bi bi-pencil-fill"></i></a>
+
+                </td>
+            </tr>
+            count++;
+        }
+    </tbody>
+</table>

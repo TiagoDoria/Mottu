@@ -25,6 +25,12 @@ namespace MotorcycleAPI.Migrations
                 {
                     table.PrimaryKey("PK_Motorcycles", x => x.Id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Motorcycles_Plate",
+                table: "Motorcycles",
+                column: "Plate",
+                unique: true);
         }
 
         /// <inheritdoc />

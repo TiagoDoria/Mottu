@@ -7,7 +7,7 @@ namespace LocationAPI.Models
     {
         public Guid Id { get; set; }
         [Required]
-        public DateTime StartDate { get; set; } = DateTime.Now.AddDays(1);
+        public DateTime StartDate { get; set; } = DateTime.Now.AddDays(1).ToUniversalTime();
         public DateTime? EndDate { get; set; }
         [Required]
         public DateTime ExpectedEndDate { get; set; }
@@ -18,5 +18,11 @@ namespace LocationAPI.Models
         [Required]
         public Guid MotorcycleId { get; set; }
         public decimal? TotalPrice { get; set; }
+
+        public Location()
+        {
+            ExpectedEndDate = ExpectedEndDate.ToUniversalTime();
+            StartDate = StartDate.ToUniversalTime();
+        }
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LocationAPI.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class LocationController : ControllerBase
@@ -56,7 +56,7 @@ namespace LocationAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "DELIVERYMAN")]
         public async Task<ActionResult<ResponseDTO>> AddAsync([FromBody] LocationDTO dto)
         {
             try
@@ -103,7 +103,7 @@ namespace LocationAPI.Controllers
         }
 
         [HttpPost("calculate")]
-        [Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "DELIVERYMAN")]
         public async Task<ActionResult> CalculatePrice([FromBody] LocationDTO entity)
         {
             try
@@ -116,6 +116,24 @@ namespace LocationAPI.Controllers
                 _response.IsSuccess = false;
                 _response.Message = e.Message;
             }
+            return Ok(_response);
+        }
+
+        [HttpGet("LocationActive/{userid}")]
+        public async Task<ActionResult<ResponseDTO>> FindByIdUserAsync(Guid userid)
+        {
+            try
+            {
+                var location = await _service.FindByIdUserAsync(userid);
+                if (location.Id == Guid.Empty) return NotFound();
+                _response.Result = location;
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+
             return Ok(_response);
         }
     }

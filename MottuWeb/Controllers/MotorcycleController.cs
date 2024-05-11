@@ -2,7 +2,6 @@
 using MottuWeb.Models;
 using MottuWeb.Service.IService;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace MottuWeb.Controllers
 {
@@ -41,6 +40,27 @@ namespace MottuWeb.Controllers
             ViewData["LicenseTypes"] = list;
 
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateMotorcycle(MotorcycleDTO motorcycleDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                ResponseDTO result = await _serviceMotorcycle.AddMotorcycleAsync(motorcycleDTO);
+
+                if (result != null && result.IsSuccess)
+                {
+                    TempData["success"] = "Locação realizada com sucesso!";
+                    return RedirectToAction(nameof(IndexMotorcycle));
+                }
+                else
+                {
+                    TempData["error"] = result.Message;
+                }
+            }
+
+            return View(motorcycleDTO);
         }
 
     }

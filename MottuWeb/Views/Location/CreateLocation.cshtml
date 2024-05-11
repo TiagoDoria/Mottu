@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using MottuWeb.Models
+
+@model LocationDTO
+@{
+}
+<form method="post">
+    <div class="container border p-4">
+        <div class="row text-center">
+            <h1>Locação</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">Data de Locação</label>
+                <input class="form-control" asp-for="StartDate" type="date" placeholder="Data de Locação">
+                <span asp-asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">Tipo de Plano</label>
+                <select asp-for="PlanDays" class="form-control">
+                    <option disabled selected>---Selecione---</option>
+                    <option value="7">Plano I: 7 dias (R$30/dia) - </option>
+                    <option value="15">Plano II: 15 dias (R$28/dia)</option>
+                    <option value="30">Plano III: 30 dias (R$22/dia)</option>
+                </select>
+            </div>
+                    
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">Motos disponíveis</label>
+                <select asp-for="MotorcycleId" class="form-control">
+                    <option disabled selected>---Selecione---</option>
+                    @foreach (var motorcycle in ViewData["Motorcycles"] as List<MotorcycleDTO>)
+                    {
+                        <option value="@motorcycle.Id">@motorcycle.Model - @motorcycle.Year</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-6 offset-3 pb-2">
+                <button type="submit" class="form-control btn btn-success" value="Submit">Registrar</button>
+            </div>
+        </div>
+    </div>
+</form>

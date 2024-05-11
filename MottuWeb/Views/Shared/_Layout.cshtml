@@ -43,6 +43,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" asp-controller="Motorcycle" asp-action="IndexMotorcycle">Motos</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Location" asp-action="IndexLocation">Locação</a>
+                                </li>
                             }
 
                             @if (User.IsInRole("DELIVERYMAN"))
@@ -50,7 +53,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link" asp-controller="Auth" asp-action="UploadDriversLicenseImage">Upload CNH</a>
                                 </li>
-                            }
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Location" asp-action="Devolution">Locação</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Location" asp-action="CreateLocation">Locação</a>
+                                </li>
+                            }                  
                             
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Auth" asp-action="Logout">Logout</a>

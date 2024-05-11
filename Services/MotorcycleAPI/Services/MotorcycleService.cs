@@ -32,6 +32,11 @@ namespace MotorcycleAPI.Services
             return _mapper.Map<IEnumerable<MotorcycleDTO>>(await _motorcycleRepository.FindAllAsync());
         }
 
+        public async Task<IEnumerable<MotorcycleDTO>> FindAvailablesMotorcyclesAsync()
+        {
+            return _mapper.Map<IEnumerable<MotorcycleDTO>>(await _motorcycleRepository.FindAvailablesMotorcyclesAsync());
+        }
+
         public async Task<MotorcycleDTO> FindByIdAsync(Guid id)
         {
             return _mapper.Map<MotorcycleDTO>(await _motorcycleRepository.FindByIdAsync(id));
@@ -42,7 +47,7 @@ namespace MotorcycleAPI.Services
             return _mapper.Map<MotorcycleDTO>(await _motorcycleRepository.FindByPlateAsync(plate));
         }
 
-        public async Task UpdateAsync(MotorcycleUpdateDTO entity)
+        public async Task UpdateAsync(MotorcycleDTO entity)
         {
             await _motorcycleRepository.UpdateAsync(_mapper.Map<Motorcycle>(entity));
         }

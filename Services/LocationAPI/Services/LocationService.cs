@@ -20,8 +20,14 @@ namespace LocationAPI.Services
 
         public async Task AddAsync(LocationDTO entity)
         {
-            entity.ExpectedEndDate = entity.StartDate.AddDays(entity.PlanDays);
-            await _locationRepository.AddAsync(_mapper.Map<Location>(entity));
+            try
+            {
+                entity.ExpectedEndDate = entity.StartDate.AddDays(entity.PlanDays).ToUniversalTime();
+                entity.StartDate = entity.StartDate.ToUniversalTime();
+
+                await _locationRepository.AddAsync(_mapper.Map<Location>(entity));
+            }
+            catch (Exception ex) { }
         }
 
         public async Task<bool> DeleteAsync(Guid id)
@@ -37,6 +43,10 @@ namespace LocationAPI.Services
         public async Task<LocationDTO> FindByIdAsync(Guid id)
         {
             return _mapper.Map<LocationDTO>(await _locationRepository.FindByIdAsync(id));
+        }
+        public async Task<LocationDTO> FindByIdUserAsync(Guid id)
+        {
+            return _mapper.Map<LocationDTO>(await _locationRepository.FindByIdUserAsync(id));
         }
 
         public async Task UpdateAsync(LocationDTO entity)

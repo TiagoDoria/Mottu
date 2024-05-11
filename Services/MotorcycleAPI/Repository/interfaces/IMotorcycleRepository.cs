@@ -10,5 +10,6 @@ namespace MotorcycleAPI.Repository.interfaces
         Task<Motorcycle> UpdateAsync(Motorcycle vo);
         Task<bool> DeleteAsync(Guid id);
         Task<Motorcycle> FindByPlateAsync(string plate);
+        Task<IEnumerable<Motorcycle>> FindAvailablesMotorcyclesAsync();
     }
 }

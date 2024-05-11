@@ -54,6 +54,14 @@ namespace LocationAPI.Repository
                 .FirstOrDefaultAsync() ?? new Location();
             return location;
         }
+        
+        public async Task<Location> FindByIdUserAsync(Guid id)
+        {
+            Location location =
+                await _context.Locations.Where(x => x.UserId == id && x.EndDate == null)
+                .FirstOrDefaultAsync() ?? new Location();
+            return location;
+        }
 
         public async Task<Location> UpdateAsync(Location entity)
         {

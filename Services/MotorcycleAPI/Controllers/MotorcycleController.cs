@@ -36,7 +36,25 @@ namespace MotorcycleAPI.Controllers
             return Ok(_response);
         }
 
+        [HttpGet("Available")]
+        public async Task<ActionResult<IEnumerable<ResponseDTO>>> FindAvailablesMotorcyclesAsync(Guid id)
+        {
+            try
+            {
+                var motorcycles = await _service.FindAvailablesMotorcyclesAsync();
+                _response.Result = motorcycles;
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+
+            return Ok(_response);
+        }
+
         [HttpGet("plate/{plate}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<ResponseDTO>> FindByPlateAsync(string plate)
         {
             try
@@ -91,8 +109,7 @@ namespace MotorcycleAPI.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "ADMIN")]
-        public async Task<ActionResult<ResponseDTO>> Update([FromBody] MotorcycleUpdateDTO dto)
+        public async Task<ActionResult<ResponseDTO>> Update([FromBody] MotorcycleDTO dto)
         {
             try
             {

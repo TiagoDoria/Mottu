@@ -44,6 +44,9 @@ namespace MotorcycleAPI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Plate")
+                        .IsUnique();
+
                     b.ToTable("Motorcycles");
                 });
 #pragma warning restore 612, 618

@@ -47,6 +47,12 @@ namespace MotorcycleAPI.Repository
             return motorcycles;
         }
 
+        public async Task<IEnumerable<Motorcycle>> FindAvailablesMotorcyclesAsync()
+        {
+            var motorcycles = await _context.Motorcycles.Where(m => m.Available == true).ToListAsync();
+            return motorcycles;
+        }
+
         public async Task<Motorcycle> FindByIdAsync(Guid id)
         {
             Motorcycle motorcycle =

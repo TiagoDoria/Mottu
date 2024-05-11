@@ -11,6 +11,13 @@ namespace MotorcycleAPI.Data
 
         public DbSet<Motorcycle> Motorcycles { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Motorcycle>()
+                .HasIndex(e => e.Plate)
+                .IsUnique();
+        }
+
 
     }
 }
