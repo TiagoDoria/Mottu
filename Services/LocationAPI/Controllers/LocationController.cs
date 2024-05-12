@@ -108,6 +108,7 @@ namespace LocationAPI.Controllers
         {
             try
             {
+                entity.EndDate = entity.EndDate?.ToUniversalTime();
                 var location = await _service.CalculatePrice(entity);
                 _response.Result = location;
             }

@@ -93,6 +93,11 @@ namespace MottuWeb.Controllers
             {
                 location = JsonConvert.DeserializeObject<LocationDTO>(Convert.ToString(responseDTO.Result));
             }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
 
             MotorcycleDTO motorcycle = new();
             ResponseDTO response = await _serviceMotorcycle.GetMotorcycleById(location.MotorcycleId);
@@ -107,15 +112,28 @@ namespace MottuWeb.Controllers
             return View(location);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Pay()
+        {
+            var userId = Guid.Parse(User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value);
+            LocationDTO location = new();
+            location.TotalPrice = Convert.ToDecimal(TempData["Price"]);
+
+            return View(location);
+        }
+
+
+
         [HttpPost]
         public async Task<IActionResult> Devolution(LocationDTO model)
         {
+
             MotorcycleDTO motorcycle = new();
             LocationDTO location = new();
             if (ModelState.IsValid)
             {
                 model.UserId = Guid.Parse(User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value);
-                ResponseDTO responseMotorcycle = await _serviceMotorcycle.GetMotorcycleById(model.MotorcycleId);
+                ResponseDTO responseMotorcycle = await _serviceMotorcycle.GetMotorcycleById(Guid.Parse(Request.Form["MotorcycleId"]));
                 motorcycle = JsonConvert.DeserializeObject<MotorcycleDTO>(Convert.ToString(responseMotorcycle.Result));
                 motorcycle.Available = true;
                 await _serviceMotorcycle.UpdateMotorcycleAsync(motorcycle);
@@ -126,7 +144,8 @@ namespace MottuWeb.Controllers
                 {
                     location = JsonConvert.DeserializeObject<LocationDTO>(Convert.ToString(response.Result));
                     TempData["success"] = "Locação finalizada com sucesso!";
-                    return RedirectToAction("Index", "Home");
+                    TempData["Price"] = location.TotalPrice.ToString();
+                    return RedirectToAction("Pay");
                 }        
                 else
                 {
@@ -134,14 +153,6 @@ namespace MottuWeb.Controllers
                 }
             }
 
-            List<MotorcycleDTO> list = new();
-            ResponseDTO responseDTO = await _serviceMotorcycle.GetAvailableMotorcyclesAsync();
-            if (responseDTO != null && responseDTO.IsSuccess)
-            {
-                list = JsonConvert.DeserializeObject<List<MotorcycleDTO>>(Convert.ToString(responseDTO.Result));
-            }
-
-            ViewData["Motorcycles"] = list;
             return View();
         }
     }

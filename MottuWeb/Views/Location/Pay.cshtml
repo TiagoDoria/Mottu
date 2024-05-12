@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using MottuWeb.Models
+
+@model LocationDTO
+@{
+}
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="container border p-4">
+        <div class="row text-center">
+            <h1>Pagar locação</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">Valor Total</label>
+                <input class="form-control" asp-for="TotalPrice" placaholder="Valor Total" readonly>
+            </div>
+                   
+            <div class="col-md-6 offset-3 pb-2">
+                <button class="form-control btn btn-success">Pagar</button>
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -5,9 +5,9 @@
 
 @model LocationDTO
 @{
-    var motorcycle = ViewBag.Motorcycle;
 }
 <form method="post">
+    <input asp-for="Id" hidden />
     <div class="container border p-4">
         <div class="row text-center">
             <h1>Locação</h1>
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-6 offset-3 pb-2">
                 <label class="form-label">Data de Locação</label>
-                <input class="form-control" asp-for="StartDate" type="date" placeholder="Data de Locação" disabled>
+                <input class="form-control" asp-for="StartDate" type="date" placaholder="Data de Locação" readonly>
                 <span asp-asp-validation-for="StartDate" class="text-danger"></span>
             </div>
             <div class="col-md-6 offset-3 pb-2">
@@ -26,17 +26,13 @@
             </div>
             <div class="col-md-6 offset-3 pb-2">
                 <label class="form-label">Tipo de Plano</label>
-                <select asp-for="PlanDays" class="form-control" disabled>
-                    <option disabled selected>---Selecione---</option>
-                    <option value="7">Plano I: 7 dias (R$30/dia) - </option>
-                    <option value="15">Plano II: 15 dias (R$28/dia)</option>
-                    <option value="30">Plano III: 30 dias (R$22/dia)</option>
-                </select>
-            </div>  
+                <input class="form-control" asp-for="PlanDays" placeholder="Plano" readonly>
+            </div> 
+            <input type="hidden" name="MotorcycleId" value="@ViewBag.Motorcycle.Id" />
             <div class="col-md-6 offset-3 pb-2">
-                <label class="form-label">Motos disponíveis</label>
+                <label class="form-label">Moto</label>
                 <select asp-for="MotorcycleId" class="form-control" disabled>
-                    <option selected value="@motorcycle.Id">@motorcycle.Model - @motorcycle.Year</option>
+                    <option selected value="@ViewBag.Motorcycle.Id">@ViewBag.Motorcycle.Plate</option>
                 </select>
             </div>
             <div class="col-md-6 offset-3 pb-2">
@@ -44,4 +40,5 @@
             </div>
         </div>
     </div>
+
 </form>

@@ -68,7 +68,10 @@ namespace LocationAPI.Services
                     var thirtyDaysPlan = new LeasingCalculator(new ThirtyDaysLeasingPlan());
                     entity.TotalPrice = thirtyDaysPlan.CalculateLeasingValue(entity.StartDate, (DateTime)entity.EndDate); break;
             }
-                
+
+            entity.EndDate = entity.EndDate?.ToUniversalTime();
+            entity.StartDate = entity.StartDate.ToUniversalTime();
+            entity.ExpectedEndDate = entity.StartDate.AddDays(entity.PlanDays).ToUniversalTime();
             await _locationRepository.UpdateAsync(_mapper.Map<Location>(entity));
 
             return entity;
