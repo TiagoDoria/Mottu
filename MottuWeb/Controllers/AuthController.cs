@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MottuWeb.Models;
@@ -16,13 +17,14 @@ namespace MottuWeb.Controllers
         private readonly IServiceAuth _serviceAuth;
         private readonly ITokenProvider _tokenProvider;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string _imagePath = Path.Combine("c:", "cnh");
+        private string _imagePath;
 
-        public AuthController(IServiceAuth serviceAuth, ITokenProvider tokenProvider, IHttpContextAccessor httpContextAccessor)
+        public AuthController(IServiceAuth serviceAuth, ITokenProvider tokenProvider, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment system)
         {
             _serviceAuth = serviceAuth;
             _tokenProvider = tokenProvider;
             _httpContextAccessor = httpContextAccessor;
+            _imagePath = system.WebRootPath;
         }
 
         [HttpGet]
@@ -161,7 +163,7 @@ namespace MottuWeb.Controllers
 
             string fileName = $"{fileId}{extension}";
 
-            string filePath = Path.Combine(_imagePath, fileName);
+            string filePath = _imagePath + "\\images\\";
 
             if (!Directory.Exists(filePath))
             {
@@ -169,12 +171,12 @@ namespace MottuWeb.Controllers
             }
 
             // Salve a imagem no disco
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            using (var stream = System.IO.File.Create(filePath + fileName))
             {
                 await image.CopyToAsync(stream);
             }
 
-            return Ok($"Imagem salva com sucesso. Caminho: {filePath}");
+            return Ok($"Imagem salva com sucesso.");
         }
     }
 }
