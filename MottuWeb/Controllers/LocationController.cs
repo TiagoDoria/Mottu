@@ -92,7 +92,6 @@ namespace MottuWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Pay()
         {
-            var userId = GetUserId();
             var location = new LocationDTO { TotalPrice = Convert.ToDecimal(TempData["Price"]) };
             return View(location);
         }

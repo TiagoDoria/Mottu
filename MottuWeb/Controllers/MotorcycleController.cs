@@ -17,28 +17,14 @@ namespace MottuWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> IndexMotorcycle()
         {
-            List<MotorcycleDTO> list = new();
-            ResponseDTO responseDTO = await _serviceMotorcycle.GetAllMotorcyclesAsync();
-            if (responseDTO != null && responseDTO.IsSuccess)
-            {
-                list = JsonConvert.DeserializeObject<List<MotorcycleDTO>>(Convert.ToString(responseDTO.Result));
-            }
-
+            var list = await GetMotorcycleList();
             return View(list);
         }
 
         [HttpGet]
         public async Task<IActionResult> CreateMotorcycle()
         {
-            List<LicenseTypeDTO> list = new();
-            ResponseDTO responseDTO = await _serviceMotorcycle.GetAllLicenseTypes();
-            if (responseDTO != null && responseDTO.IsSuccess)
-            {
-                list = JsonConvert.DeserializeObject<List<LicenseTypeDTO>>(Convert.ToString(responseDTO.Result));
-            }
-            
-            ViewData["LicenseTypes"] = list;
-
+            ViewData["LicenseTypes"] = await GetLicenseTypes();
             return View();
         }
 
@@ -47,7 +33,7 @@ namespace MottuWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                ResponseDTO result = await _serviceMotorcycle.AddMotorcycleAsync(motorcycleDTO);
+                var result = await _serviceMotorcycle.AddMotorcycleAsync(motorcycleDTO);
 
                 if (result != null && result.IsSuccess)
                 {
@@ -60,8 +46,30 @@ namespace MottuWeb.Controllers
                 }
             }
 
+            ViewData["LicenseTypes"] = await GetLicenseTypes();
             return View(motorcycleDTO);
         }
 
+        private async Task<List<MotorcycleDTO>> GetMotorcycleList()
+        {
+            var list = new List<MotorcycleDTO>();
+            var responseDTO = await _serviceMotorcycle.GetAllMotorcyclesAsync();
+            if (responseDTO != null && responseDTO.IsSuccess)
+            {
+                list = JsonConvert.DeserializeObject<List<MotorcycleDTO>>(Convert.ToString(responseDTO.Result));
+            }
+            return list;
+        }
+
+        private async Task<List<LicenseTypeDTO>> GetLicenseTypes()
+        {
+            var list = new List<LicenseTypeDTO>();
+            var responseDTO = await _serviceMotorcycle.GetAllLicenseTypes();
+            if (responseDTO != null && responseDTO.IsSuccess)
+            {
+                list = JsonConvert.DeserializeObject<List<LicenseTypeDTO>>(Convert.ToString(responseDTO.Result));
+            }
+            return list;
+        }
     }
 }

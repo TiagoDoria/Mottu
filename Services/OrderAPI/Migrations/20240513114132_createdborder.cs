@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OrderAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class createorderdb : Migration
+    public partial class createdborder : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,10 +15,11 @@ namespace OrderAPI.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    RaceValue = table.Column<decimal>(type: "numeric", nullable: false),
-                    Situation = table.Column<string>(type: "text", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RaceValue = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Situation = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DeliverymanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {

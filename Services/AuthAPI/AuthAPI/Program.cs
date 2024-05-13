@@ -4,6 +4,7 @@ using AuthAPI.Service;
 using AuthAPI.Service.Interface;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +18,13 @@ builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AuthContext>(option =>
-{
-    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+//builder.Services.AddDbContext<AuthContext>(option =>
+//{
+//    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+//});
 
+builder.Services.AddDbContext<AuthContext>(options =>
+                            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<AuthContext>();
 

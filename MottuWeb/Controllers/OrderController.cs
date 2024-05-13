@@ -17,28 +17,14 @@ namespace MottuWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> IndexOrder()
         {
-            List<OrderDTO> list = new();
-            ResponseDTO responseDTO = await _serviceOrder.GetAllOrdersAsync();
-            if (responseDTO != null && responseDTO.IsSuccess)
-            {
-                list = JsonConvert.DeserializeObject<List<OrderDTO>>(Convert.ToString(responseDTO.Result));
-            }
-
+            var list = await GetOrderList();
             return View(list);
         }
 
         [HttpGet]
-        public async Task<IActionResult> CreateOrder()
+        public IActionResult CreateOrder()
         {
-            try
-            {
-                return View();
-            }
-            catch (Exception ex)
-            {
-                TempData["error"] = ex.Message;
-                return RedirectToAction("Index", "Home");
-            }
+            return View();
         }
 
         [HttpPost]
@@ -47,26 +33,37 @@ namespace MottuWeb.Controllers
             try
             {
                 if (ModelState.IsValid)
-                {               
-                    ResponseDTO result = await _serviceOrder.AddOrderAsync(model);
+                {
+                    var result = await _serviceOrder.AddOrderAsync(model);
 
                     if (result != null && result.IsSuccess)
                     {
                         TempData["success"] = "Pedido realizada com sucesso!";
-                        return RedirectToAction("IndexOrder");
+                        return RedirectToAction(nameof(IndexOrder));
                     }
                     else
                     {
                         TempData["error"] = result.Message;
                     }
-                }           
-                return View();
+                }
+                return View(model);
             }
             catch (Exception ex)
             {
                 TempData["error"] = ex.Message;
-                return View();
+                return View(model);
             }
+        }
+
+        private async Task<List<OrderDTO>> GetOrderList()
+        {
+            var list = new List<OrderDTO>();
+            var responseDTO = await _serviceOrder.GetAllOrdersAsync();
+            if (responseDTO != null && responseDTO.IsSuccess)
+            {
+                list = JsonConvert.DeserializeObject<List<OrderDTO>>(Convert.ToString(responseDTO.Result));
+            }
+            return list;
         }
     }
 }
