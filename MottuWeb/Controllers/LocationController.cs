@@ -2,6 +2,7 @@
 using MottuWeb.Models;
 using MottuWeb.Service.IService;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Security.Claims;
 
 namespace MottuWeb.Controllers
@@ -9,12 +10,14 @@ namespace MottuWeb.Controllers
     public class LocationController : Controller
     {
         private readonly IServiceLocation _serviceLocation;
+        private readonly IServiceAuth _serviceAuth;
         private readonly IServiceMotorcycle _serviceMotorcycle;
 
-        public LocationController(IServiceLocation serviceLocation, IServiceMotorcycle serviceMotorcycle)
+        public LocationController(IServiceLocation serviceLocation, IServiceMotorcycle serviceMotorcycle, IServiceAuth serviceAuth)
         {
             _serviceLocation = serviceLocation;
             _serviceMotorcycle = serviceMotorcycle;
+            _serviceAuth = serviceAuth;
         }
 
         [HttpGet]
@@ -27,6 +30,13 @@ namespace MottuWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> CreateLocation()
         {
+            var canRent = await CheckIfCanRent();
+            if (!canRent)
+            {
+                TempData["error"] = "´Tipo de CNH não permite aluguel de motos!";
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewData["Motorcycles"] = await GetAvailableMotorcyclesAsync();
             return View();
         }
@@ -35,7 +45,7 @@ namespace MottuWeb.Controllers
         public async Task<IActionResult> CreateLocation(LocationDTO model)
         {
             try
-            {
+            {          
                 if (ModelState.IsValid)
                 {
                     var motorcycle = await UpdateMotorcycleAsync(model.MotorcycleId, false);
@@ -130,6 +140,22 @@ namespace MottuWeb.Controllers
                 TempData["error"] = ex.Message;
                 return RedirectToAction("Index", "Home");
             }
+        }
+
+        public async Task<bool> CheckIfCanRent()
+        {
+            LicenseTypeDTO license = new();
+            var licenseId = Guid.Parse(User.Claims.Where(u => u.Type == "license")?.FirstOrDefault()?.Value);
+            var response = await _serviceAuth.GetLicenseTypeById(licenseId);
+            if (response != null && response.IsSuccess)
+            {
+                license = JsonConvert.DeserializeObject<LicenseTypeDTO>(Convert.ToString(response.Result));
+            }
+            if (license.Description.Equals("A"))
+            {
+                return true;
+            }
+            return false;
         }
 
         private async Task<List<LocationDTO>> GetLocationsAsync()

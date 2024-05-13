@@ -4,6 +4,7 @@ using AuthAPI.Models;
 using AuthAPI.Service.Interface;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using static AuthAPI.Utils.DriverLicense;
 
 namespace AuthAPI.Service
 {
@@ -140,6 +141,18 @@ namespace AuthAPI.Service
             }
 
             return licenseDTOs;
+        }
+
+        public async Task<LicenseTypeDTO> GetLicenseTypeByIdAsync(Guid id)
+        {
+            var licenseType = _db.LicenseTypes.FirstOrDefault();
+            LicenseTypeDTO licenseDTO = new LicenseTypeDTO
+            {
+                Id = licenseType.Id,
+                Description = licenseType.Description
+            };
+                
+            return licenseDTO;
         }
     }
 }

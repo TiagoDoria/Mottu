@@ -8,5 +8,6 @@ namespace AuthAPI.Service.Interface
         Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO);
         Task<bool> AssignRole(string email, string roleName);
         Task<IEnumerable<LicenseTypeDTO>> FindAllLicenseTypesAsync();
+        Task<LicenseTypeDTO> GetLicenseTypeByIdAsync(Guid id);
     }
 }

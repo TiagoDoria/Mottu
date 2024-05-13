@@ -28,8 +28,17 @@ namespace MottuWeb.Service
             return await _serviceBase.SendAsync(new RequestDTO()
             {
                 ApiType = Configs.ApiType.GET,
-                Url = Configs.AuthAPIBase + "/api/auth/LicenseTypes"
+                Url = Configs.AuthAPIBase + "/api/license/"
             }, withBearer: false);
+        }
+
+        public async Task<ResponseDTO?> GetLicenseTypeById(Guid id)
+        {
+            return await _serviceBase.SendAsync(new RequestDTO()
+            {
+                ApiType = Configs.ApiType.GET,
+                Url = Configs.AuthAPIBase + "/api/license/" + id
+            }, withBearer: true);
         }
 
         public async Task<ResponseDTO?> LoginAsync(LoginRequestDTO loginRequestDTO)
