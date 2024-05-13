@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using MottuWeb.Models
+
+@model OrderDTO
+@{
+}
+<form asp-action="CreateOrder">
+    <div class="container border p-4">
+        <div class="row text-center">
+            <h1>Cadastrar pedido</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-3 pb-2">
+                <label class="form-label">Valor</label>
+                <input class="form-control" type="text" asp-for="RaceValue" placeholder="Valor">
+                <span asp-asp-validation-for="RaceValue" class="text-danger"></span>
+            </div>         
+            <div class="col-md-6 offset-3 pb-2">
+                <button type="submit" class="form-control btn btn-success">Salvar</button>
+            </div>
+        </div>
+    </div>
+</form>

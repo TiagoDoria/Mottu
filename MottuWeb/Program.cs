@@ -17,11 +17,13 @@ builder.Services.AddHttpClient<IServiceLocation, ServiceLocation>();
 Configs.MotorcycleAPIBase = builder.Configuration["ServiceUrls:MotorcycleAPI"];
 Configs.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 Configs.LocationAPIBase = builder.Configuration["ServiceUrls:LocationAPI"];
+Configs.OrderAPIBase = builder.Configuration["ServiceUrls:OrderAPI"];
 
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<IServiceBase, ServiceBase>();
 builder.Services.AddScoped<IServiceMotorcycle, ServiceMotorcycle>();
 builder.Services.AddScoped<IServiceLocation, ServiceLocation>();
+builder.Services.AddScoped<IServiceOrder, ServiceOrder>();
 builder.Services.AddScoped<IServiceAuth, ServiceAuth>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options => 

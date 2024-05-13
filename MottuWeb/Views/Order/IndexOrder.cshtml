@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<OrderDTO>
+@{
+    int count = 1;
+}
+
+<h2 class="text-center">Pedidos</h2>
+<a class="text-center" asp-controller="Order" asp-action="CreateOrder" type="button" class="btn btn-link">Cadastrar pedido</a>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Data Criação</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Situação</th>
+            <th scope="col">Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Created?.ToString("dd/MM/yyyy")</td>
+                <td>@item.RaceValue</td>
+                <td>@item.Situation</td>
+               
+                <td>
+                    <a asp-controller="Order" asp-action="DeleteOrder" asp-route-filmeId="@item.Id"><i style="color: red" class="bi bi-trash-fill"></i></a>
+                    <a asp-controller="Order" asp-action="EdiOrder" asp-route-filmeId="@item.Id"><i style="color: blue" class="bi bi-pencil-fill"></i></a>
+
+                </td>
+            </tr>
+            count++;
+        }
+    </tbody>
+</table>
