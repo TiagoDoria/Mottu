@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MottuWeb.Models;
+using MottuWeb.Service;
 using MottuWeb.Service.IService;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace MottuWeb.Controllers
 {
@@ -64,6 +67,56 @@ namespace MottuWeb.Controllers
                 list = JsonConvert.DeserializeObject<List<OrderDTO>>(Convert.ToString(responseDTO.Result));
             }
             return list;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> OrdersAvailables()
+        {
+            var list = await GetOrderList();
+            list = list.Where(x => x.Situation.Equals("Disponivel")).ToList();
+            return View(list);
+        }
+
+        public async Task<IActionResult> Accept(Guid id)
+        {
+            try
+            {
+                OrderDTO dto = new();
+                var responseDTO = await _serviceOrder.GetOrderById(id);
+                if (responseDTO != null && responseDTO.IsSuccess)
+                {
+                    dto = JsonConvert.DeserializeObject<OrderDTO>(Convert.ToString(responseDTO.Result));
+                }
+
+                if (!dto.Situation.Equals("Disponivel"))
+                {
+                    TempData["error"] = "Não é possível aceitar o pedido!";
+                    return RedirectToAction(nameof(IndexOrder));
+                }
+
+                if (ModelState.IsValid)
+                {
+                    dto.Situation = "Aceito";
+                    dto.DeliverymanId = GetUserId();
+                    ResponseDTO response = await _serviceOrder.UpdateOrderAsync(dto);
+                    if (response != null)
+                    {
+                        return RedirectToAction(nameof(IndexOrder));
+                    }
+                }
+
+                return View(dto);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction(nameof(IndexOrder));
+            }
+        }
+
+        private Guid GetUserId()
+        {
+            return Guid.Parse(User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value);
         }
     }
 }

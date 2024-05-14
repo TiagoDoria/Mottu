@@ -16,7 +16,6 @@
             <th scope="col">Data Fim</th>
             <th scope="col">Data Prevista</th>
             <th scope="col">Status</th>
-            <th scope="col">Operações</th>
         </tr>
     </thead>
     <tbody>
@@ -35,11 +34,7 @@
                 {
                     <td>Finalizada</td>
                 }
-                <td>
-                    <a asp-controller="Location" asp-action="DeleteLocation" asp-route-filmeId="@item.Id"><i style="color: red" class="bi bi-trash-fill"></i></a>
-                    <a asp-controller="Location" asp-action="EditLocation" asp-route-filmeId="@item.Id"><i style="color: blue" class="bi bi-pencil-fill"></i></a>
-
-                </td>
+                
             </tr>
             count++;
         }

@@ -9,83 +9,99 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MottuWeb
 build_property.RootNamespace = MottuWeb
-build_property.ProjectDir = C:\Users\tiago.conceicao\Pictures\Mottu\MottuWeb\
+build_property.ProjectDir = C:\Users\tiago\Videos\Mottu\Mottu\MottuWeb\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\tiago.conceicao\Pictures\Mottu\MottuWeb
+build_property.MSBuildProjectDirectory = C:\Users\tiago\Videos\Mottu\Mottu\MottuWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Auth/Login.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Auth/Register.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Auth/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Auth/UploadDriversLicenseImage.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Auth/UploadDriversLicenseImage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxVcGxvYWREcml2ZXJzTGljZW5zZUltYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Home/Index.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Home/Privacy.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Location/CreateLocation.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Location/CreateLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cQ3JlYXRlTG9jYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Location/Devolution.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Location/Devolution.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cRGV2b2x1dGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Location/IndexLocation.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Location/IndexLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cSW5kZXhMb2NhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Location/Pay.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Location/Pay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cUGF5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Motorcycle/CreateMotorcycle.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Motorcycle/CreateMotorcycle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90b3JjeWNsZVxDcmVhdGVNb3RvcmN5Y2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Motorcycle/IndexMotorcycle.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Motorcycle/DeleteMotorcycle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90b3JjeWNsZVxEZWxldGVNb3RvcmN5Y2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Motorcycle/IndexMotorcycle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90b3JjeWNsZVxJbmRleE1vdG9yY3ljbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Order/CreateOrder.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Motorcycle/UpdateMotorcycle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90b3JjeWNsZVxVcGRhdGVNb3RvcmN5Y2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Order/CreateOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ3JlYXRlT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Order/IndexOrder.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Order/IndexOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXhPcmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Shared/Error.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Order/OrdersAvailables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJzQXZhaWxhYmxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Shared/_Notifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/_ViewImports.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/_ViewStart.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tiago.conceicao/Pictures/Mottu/MottuWeb/Views/Shared/_Layout.cshtml]
+[C:/Users/tiago/Videos/Mottu/Mottu/MottuWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ht7nhu048o

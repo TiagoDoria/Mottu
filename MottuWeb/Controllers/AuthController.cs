@@ -146,8 +146,8 @@ namespace MottuWeb.Controllers
         {
             if (image == null || image.Length == 0)
             {
-                ModelState.AddModelError("image", "Por favor, selecione um arquivo.");
-                return View();
+                TempData["error"] = "Por favor, selecione um arquivo.";
+                return RedirectToAction("Index", "Home");
             }
 
             var allowedExtensions = new[] { ".png", ".bmp" };
@@ -155,7 +155,8 @@ namespace MottuWeb.Controllers
 
             if (!allowedExtensions.Contains(extension))
             {
-                return BadRequest("Apenas imagens nos formatos PNG e BMP são permitidas.");
+                TempData["error"] = "Apenas imagens nos formatos PNG e BMP são permitidas.";
+                return RedirectToAction("Index", "Home");
             }
 
             var fileId = Guid.NewGuid();
@@ -176,7 +177,8 @@ namespace MottuWeb.Controllers
                 await image.CopyToAsync(stream);
             }
 
-            return Ok($"Imagem salva com sucesso.");
+            TempData["success"] = "Imagem salva com sucesso";
+            return RedirectToAction("Index", "Home");
         }
     }
 }

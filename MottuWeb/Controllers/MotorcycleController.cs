@@ -24,31 +24,101 @@ namespace MottuWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> CreateMotorcycle()
         {
-            ViewData["LicenseTypes"] = await GetLicenseTypes();
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateMotorcycle(MotorcycleDTO motorcycleDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var result = await _serviceMotorcycle.AddMotorcycleAsync(motorcycleDTO);
+                if (ModelState.IsValid)
+                {
+                    var result = await _serviceMotorcycle.AddMotorcycleAsync(motorcycleDTO);
 
-                if (result != null && result.IsSuccess)
-                {
-                    TempData["success"] = "Locação realizada com sucesso!";
-                    return RedirectToAction(nameof(IndexMotorcycle));
+                    if (result != null && result.IsSuccess)
+                    {
+                        TempData["success"] = "Locação realizada com sucesso!";
+                        return RedirectToAction(nameof(IndexMotorcycle));
+                    }
+                    else
+                    {
+                        TempData["error"] = result.Message;
+                    }
                 }
-                else
-                {
-                    TempData["error"] = result.Message;
-                }
+
+                return View(motorcycleDTO);
             }
-
-            ViewData["LicenseTypes"] = await GetLicenseTypes();
-            return View(motorcycleDTO);
+            catch (Exception ex) 
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction(nameof(IndexMotorcycle));
+            }
         }
+
+        public async Task<IActionResult> UpdateMotorcycle(Guid id)
+        {
+            ResponseDTO response = await _serviceMotorcycle.GetMotorcycleById(id);
+            if (response != null)
+            {
+                MotorcycleDTO motorcycle = JsonConvert.DeserializeObject<MotorcycleDTO>(Convert.ToString(response.Result));
+                return View(motorcycle);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateMotorcycle(MotorcycleDTO dto)
+        {
+            try
+            {
+                if (dto.Available == false)
+                {
+                    TempData["error"] = "Não é possível editar moto alugada!";
+                    return View(dto);
+                }
+
+                if (ModelState.IsValid)
+                {
+                    ResponseDTO response = await _serviceMotorcycle.UpdateMotorcycleAsync(dto);
+                    if (response != null)
+                    {
+                        return RedirectToAction(nameof(IndexMotorcycle));
+                    }
+                }
+
+                return View(dto);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction(nameof(IndexMotorcycle));
+            }
+        }
+
+        public async Task<IActionResult> GetPlate(string searchMotorcycle)
+        {
+            try
+            {
+                var responseDTO = await _serviceMotorcycle.GetMotorcycleByPlate(searchMotorcycle);
+                var list = new List<MotorcycleDTO>();
+
+                if (responseDTO != null && responseDTO.IsSuccess)
+                {
+                    var motorcycle = JsonConvert.DeserializeObject<MotorcycleDTO>(Convert.ToString(responseDTO.Result));
+                    list.Add(motorcycle);
+                }
+
+                return View("IndexMotorcycle", list);
+            }
+            catch (Exception ex) 
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction(nameof(IndexMotorcycle));
+            }
+           
+        }
+
 
         private async Task<List<MotorcycleDTO>> GetMotorcycleList()
         {
@@ -61,15 +131,44 @@ namespace MottuWeb.Controllers
             return list;
         }
 
-        private async Task<List<LicenseTypeDTO>> GetLicenseTypes()
+        public async Task<IActionResult> DeleteMotorcycle(Guid id)
         {
-            var list = new List<LicenseTypeDTO>();
-            var responseDTO = await _serviceMotorcycle.GetAllLicenseTypes();
-            if (responseDTO != null && responseDTO.IsSuccess)
+            ResponseDTO response = await _serviceMotorcycle.GetMotorcycleById(id);
+            if (response != null)
             {
-                list = JsonConvert.DeserializeObject<List<LicenseTypeDTO>>(Convert.ToString(responseDTO.Result));
+                MotorcycleDTO motorcycle = JsonConvert.DeserializeObject<MotorcycleDTO>(Convert.ToString(response.Result));
+                return View(motorcycle);
             }
-            return list;
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteMotorcycle(MotorcycleDTO dto)
+        {
+            try
+            {
+                if (dto.Available == false)
+                {
+                    TempData["error"] = "Não é possível deletar moto alugada!";
+                    return View(dto);
+                }
+
+                if (ModelState.IsValid)
+                {
+                    ResponseDTO response = await _serviceMotorcycle.DeleteMotorcycleById(dto.Id);
+                    if (response != null)
+                    {
+                        return RedirectToAction(nameof(IndexMotorcycle));
+                    }
+                }
+
+                return View(dto);
+            }
+           catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction(nameof(IndexMotorcycle));
+            }
         }
     }
 }

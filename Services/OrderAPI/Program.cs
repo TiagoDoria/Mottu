@@ -76,13 +76,10 @@ builder.Services.AddSingleton(mapper);
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 
-//builder.Services.AddDbContext<OrderContext>(option =>
-//{
-//    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-//});
-
-builder.Services.AddDbContext<OrderContext>(options =>
-                            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<OrderContext>(option =>
+{
+    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 
 var app = builder.Build();

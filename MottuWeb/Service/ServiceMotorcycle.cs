@@ -58,6 +58,15 @@ namespace MottuWeb.Service
             }, withBearer: true);
         }
 
+        public async Task<ResponseDTO?> GetMotorcycleByPlate(string plate)
+        {
+            return await _serviceBase.SendAsync(new RequestDTO()
+            {
+                ApiType = Configs.ApiType.GET,
+                Url = Configs.MotorcycleAPIBase + "/api/Motorcycle/plate/" + plate
+            }, withBearer: true);
+        }
+
         public async Task<ResponseDTO?> UpdateMotorcycleAsync(MotorcycleDTO motorcycleDTO)
         {
             return await _serviceBase.SendAsync(new RequestDTO()
@@ -66,15 +75,6 @@ namespace MottuWeb.Service
                 Data = motorcycleDTO,
                 Url = Configs.MotorcycleAPIBase + "/api/Motorcycle"
             }, withBearer: true);
-        }
-
-        public async Task<ResponseDTO?> GetAllLicenseTypes()
-        {
-            return await _serviceBase.SendAsync(new RequestDTO()
-            {
-                ApiType = Configs.ApiType.GET,
-                Url = Configs.MotorcycleAPIBase + "/api/Motorcycle/LicenseTypes"
-            }, withBearer: true);
-        }
+        }       
     }
 }

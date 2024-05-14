@@ -9,6 +9,10 @@
 <h2 class="text-center">Motos cadastradas</h2>
 <a class="text-center" asp-controller="Motorcycle" asp-action="CreateMotorcycle" type="button" class="btn btn-link">Cadastrar Moto</a>
 <br />
+<form method="post" asp-action="GetPlate">
+    <input type="text" name="searchMotorcycle" placeholder="Digite a placa">
+    <button type="submit">Buscar</button>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -37,8 +41,8 @@
                     <td>Alugada</td>
                 }    
                 <td>
-                    <a asp-controller="Motorcycle" asp-action="DeleteMotorcycle" asp-route-filmeId="@item.Id"><i style="color: red" class="bi bi-trash-fill"></i></a>
-                    <a asp-controller="Motorcycle" asp-action="EditMotorcycle" asp-route-filmeId="@item.Id"><i style="color: blue" class="bi bi-pencil-fill"></i></a>
+                    <a asp-controller="Motorcycle" asp-action="DeleteMotorcycle" asp-route-id="@item.Id"><i style="color: red" class="bi bi-trash-fill"></i></a>
+                    <a asp-controller="Motorcycle" asp-action="UpdateMotorcycle" asp-route-id="@item.Id"><i style="color: blue" class="bi bi-pencil-fill"></i></a>
 
                 </td>
             </tr>

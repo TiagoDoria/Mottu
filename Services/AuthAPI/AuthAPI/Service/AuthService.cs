@@ -145,7 +145,7 @@ namespace AuthAPI.Service
 
         public async Task<LicenseTypeDTO> GetLicenseTypeByIdAsync(Guid id)
         {
-            var licenseType = _db.LicenseTypes.FirstOrDefault();
+            var licenseType = _db.LicenseTypes.FirstOrDefault(t => t.Id == id);
             LicenseTypeDTO licenseDTO = new LicenseTypeDTO
             {
                 Id = licenseType.Id,

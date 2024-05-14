@@ -2,8 +2,7 @@
 using MottuWeb.Models;
 using MottuWeb.Service.IService;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace MottuWeb.Controllers
 {
@@ -52,6 +51,7 @@ namespace MottuWeb.Controllers
 
                     if (motorcycle != null)
                     {
+                        model.UserId = GetUserId();
                         var result = await _serviceLocation.AddLocationAsync(model);
 
                         if (result != null && result.IsSuccess)
@@ -81,6 +81,13 @@ namespace MottuWeb.Controllers
         {
             try
             {
+                var canRent = await CheckIfCanRent();
+                if (!canRent)
+                {
+                    TempData["error"] = "´Tipo de CNH não permite aluguel de motos!";
+                    return RedirectToAction("Index", "Home");
+                }
+
                 var userId = GetUserId();
                 var location = await GetLocationByUserIdAsync(userId);
 
@@ -201,7 +208,7 @@ namespace MottuWeb.Controllers
 
         private Guid GetUserId()
         {
-            return Guid.Parse(User.Claims.Where(u => u.Type == ClaimTypes.NameIdentifier)?.FirstOrDefault()?.Value);
+            return Guid.Parse(User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value);
         }
 
         private async Task<LocationDTO> GetLocationByUserIdAsync(Guid userId)

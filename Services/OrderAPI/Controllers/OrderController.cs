@@ -37,7 +37,6 @@ namespace OrderAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<IEnumerable<ResponseDTO>>> FindAllAsync()
         {
             try
@@ -73,7 +72,6 @@ namespace OrderAPI.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<ResponseDTO>> Update([FromBody] OrderDTO dto)
         {
             try
