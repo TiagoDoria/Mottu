@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{9D1BFED7-1998-4AF3-A2A8-59946AC43863}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{88E0C911-1B88-4EC6-96BF-DFF041E05DA6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A5F667D3-15D8-4F3A-B9AA-AB1A4A0AD2DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{7A2F7BB5-8533-4814-82BE-9A5A6C12973F}"
@@ -19,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthAPI", "Services\AuthAPI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationAPI", "Services\LocationAPI\LocationAPI.csproj", "{DE10EE18-AAF8-4A95-A109-FC30B6BB2F1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderAPI", "Services\OrderAPI\OrderAPI.csproj", "{9C0AD0CB-DFE9-4C8D-B93F-0B2129461A10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderAPI", "Services\OrderAPI\OrderAPI.csproj", "{9C0AD0CB-DFE9-4C8D-B93F-0B2129461A10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

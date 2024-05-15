@@ -37,7 +37,7 @@ namespace MotorcycleAPI.Controllers
         }
 
         [HttpGet("Available")]
-        public async Task<ActionResult<IEnumerable<ResponseDTO>>> FindAvailablesMotorcyclesAsync(Guid id)
+        public async Task<ActionResult<IEnumerable<ResponseDTO>>> FindAvailablesMotorcyclesAsync()
         {
             try
             {
