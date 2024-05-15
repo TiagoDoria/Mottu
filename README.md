@@ -4,6 +4,7 @@ O projeto "Mottu" foi desenvolvido como desafio para a empresa Mottu, concorrend
 O passo a passo para executar o sistema será descrito no final desse documento.
 
 ### Observações importantes:
+ - Lembrar de configurar as connections strings presente nas appsettings de cada API 
  - Alguns pontos solicitados no desafio não foram implementados, são eles: Criação do serviço que monitora em tempo real cadastro de pedidos e enviados via mensageria para os entregadores, por falta de tempo. =(
  - Algumas funcionalidades não foram desenvolvidas, pois não constavam no desafio, para economizar tempo de focar nos requisitos principais. Exemplo: CRUD completo de Locação, Pedidos e usuários. =(
  - Testes estão incompletos, na API de Pedidos não foi criado os testes devido a faltar requisitos que não foram desenvolvidos. =(
