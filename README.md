@@ -83,7 +83,7 @@ Para criação da tabela é necessário gerar as migrations que estarão sendo e
 
 ![image](https://github.com/TiagoDoria/Mottu/assets/14184182/9a260673-ed78-4aff-87ab-d571947a79eb)
 
-7) O usuário também pode realizar o UPLOAD de uma imagem clicando em "Upload CNH" no menu superior
+7) O usuário também pode realizar o UPLOAD de uma imagem clicando em "Upload CNH" no menu superior e a imagem será salva na pasta wwwroot do projeto
 
 ![image](https://github.com/TiagoDoria/Mottu/assets/14184182/a0bbd842-6874-47d7-aa3f-82b7e1c2c256)
 
