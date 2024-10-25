@@ -1,4 +1,4 @@
-# DESAFIO BACKEND MOTTU
+# ALUGUEL DE MOTOS
 
 O projeto "Mottu" foi desenvolvido como desafio para a empresa Mottu, concorrendo a vaga de Desenvolvedor BackEnd.
 O passo a passo para executar o sistema será descrito no final desse documento.
